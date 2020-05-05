@@ -68,7 +68,7 @@ function handleMessage(sender_psid, received_message) {
   callSendAPI(sender_psid, response);    
   const greeting = fourthEntity(received_message.nlp, 'greetings');
   if (greeting && greeting.confidence > 0.8) {
-    sendResponse('Hi there!');
+    console.log('Hi there!');
   } else { 
     // default logic
   }
