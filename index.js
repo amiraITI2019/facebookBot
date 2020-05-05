@@ -9,16 +9,7 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
-  let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
-  let city = 'portland';
-  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-  request(url, function (err, response, body) {
-    if(err){
-      console.log('error:', error);
-    } else {
-      console.log('body:', body);
-    }
-  });
+  
   // Send the HTTP request to the Messenger Platform
   request({
     "uri": "https://graph.facebook.com/v2.6/me/messages",
@@ -32,6 +23,16 @@ function callSendAPI(sender_psid, response) {
       console.error("Unable to send message:" + err);
     }
   }); 
+  let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
+  let city = 'portland';
+  let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+  request(url, function (err, response, body) {
+    if(err){
+      console.log('error:', error);
+    } else {
+      console.log('body:', body);
+    }
+  });
 }
 
 
