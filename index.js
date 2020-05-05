@@ -2,7 +2,7 @@
 
 // const request = require('request');
 
-// const PAGE_ACCESS_TOKEN="EAAl;1RPpDf9oBAC2zz4t1VZCg9YjmHhi6i3u98hTmziXplt2P1nn4TxyDua1zeen8yBNSO40E3uymp3q3aG5TSwRUYmBwe4IFih82pneWDpmU6JXcBjHasz69hfc2VZAyg1j1Q0RyAtd0qT8IdnIkKwPIGhMuC2UnN4PAAXREXoylDP9QZBu";
+const PAGE_ACCESS_TOKEN="EAAl;1RPpDf9oBAC2zz4t1VZCg9YjmHhi6i3u98hTmziXplt2P1nn4TxyDua1zeen8yBNSO40E3uymp3q3aG5TSwRUYmBwe4IFih82pneWDpmU6JXcBjHasz69hfc2VZAyg1j1Q0RyAtd0qT8IdnIkKwPIGhMuC2UnN4PAAXREXoylDP9QZBu";
 // let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
 // let city = 'portland';
 // let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
