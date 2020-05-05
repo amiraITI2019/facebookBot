@@ -16,7 +16,7 @@ request(url, function (err, response, body) {
   if(err){
     console.log('error:', error);
   } else {
-    console.log('body:', body["weather"]);
+    console.log('body:', body.weather);
   }
 });
 //end weather
