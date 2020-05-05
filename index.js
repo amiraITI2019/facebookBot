@@ -32,7 +32,16 @@ function handleMessage(sender_psid, received_message) {
 
   // Check if the message contains text
   if (received_message.text) {    
-
+    let apiKey = 'd8bef913f624d5b009caf0b17eca93c3';
+    let city = 'portland';
+    let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
+    request(url, function (err, response, body) {
+      if(err){
+        console.log('error:', error);
+      } else {
+        console.log('body:', body);
+      }
+    });
     // Create the payload for a basic text message
     response = {
       "text": `You sent the message: "${received_message.text}". Now send me an image!`
@@ -143,3 +152,4 @@ app.get('/webhook', (req, res) => {
     }
   });
 
+  
