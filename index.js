@@ -23,7 +23,7 @@ request(url, function (err, response, body) {
 });
 let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
 let city = 'portland';
-let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
+let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
 request(url, function (err, response, body) {
   if(err){
