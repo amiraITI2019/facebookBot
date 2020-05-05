@@ -4,6 +4,7 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()),// creates express http server
   request = require('request'),
+  nlp=require('node-nlp'),
 
  PAGE_ACCESS_TOKEN="EAAl1RPpDf9oBAC2zz4t1VZCg9YjmHhi6i3u98hTmziXplt2P1nn4TxyDua1zeen8yBNSO40E3uymp3q3aG5TSwRUYmBwe4IFih82pneWDpmU6JXcBjHasz69hfc2VZAyg1j1Q0RyAtd0qT8IdnIkKwPIGhMuC2UnN4PAAXREXoylDP9QZBu";
 
@@ -21,6 +22,9 @@ request(url, function (err, response, body) {
     console.log(message);
   }
 });
+function fourthEntity(nlp, name) {
+  return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
+}
 //end weather
 function callSendAPI(sender_psid, response) {
   // Construct the message body
@@ -62,6 +66,12 @@ function handleMessage(sender_psid, received_message) {
   
   // Sends the response message
   callSendAPI(sender_psid, response);    
+  const greeting = fourthEntity(received_message.nlp, 'greetings');
+  if (greeting && greeting.confidence > 0.8) {
+    sendResponse('Hi there!');
+  } else { 
+    // default logic
+  }
 }
 
 
