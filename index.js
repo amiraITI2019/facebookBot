@@ -1,20 +1,6 @@
 'use strict';
+const PAGE_ACCESS_TOKEN="EAAl1RPpDf9oBAC2zz4t1VZCg9YjmHhi6i3u98hTmziXplt2P1nn4TxyDua1zeen8yBNSO40E3uymp3q3aG5TSwRUYmBwe4IFih82pneWDpmU6JXcBjHasz69hfc2VZAyg1j1Q0RyAtd0qT8IdnIkKwPIGhMuC2UnN4PAAXREXoylDP9QZBu";
 
-// const request = require('request');
-
-const PAGE_ACCESS_TOKEN="EAAl;1RPpDf9oBAC2zz4t1VZCg9YjmHhi6i3u98hTmziXplt2P1nn4TxyDua1zeen8yBNSO40E3uymp3q3aG5TSwRUYmBwe4IFih82pneWDpmU6JXcBjHasz69hfc2VZAyg1j1Q0RyAtd0qT8IdnIkKwPIGhMuC2UnN4PAAXREXoylDP9QZBu";
-// let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
-// let city = 'portland';
-// let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
-
-
-// request(url, function (err, response, body) {
-//   if(err){
-//     console.log('error:', error);
-//   } else {
-//     console.log('body:', body);
-//   }
-// });
 function callSendAPI(sender_psid, response) {
   // Construct the message body
   let request_body = {
@@ -22,8 +8,7 @@ function callSendAPI(sender_psid, response) {
       "id": sender_psid
     },
     "message": response
-  };
-  const request = require('request');
+  }
 
   // Send the HTTP request to the Messenger Platform
   request({
@@ -33,13 +18,11 @@ function callSendAPI(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log('message sent!');
+      console.log('message sent!',process.env.PAGE_ACCESS_TOKEN )
     } else {
       console.error("Unable to send message:" + err);
     }
   }); 
- 
- 
 }
 
 
@@ -49,10 +32,10 @@ function handleMessage(sender_psid, received_message) {
 
   // Check if the message contains text
   if (received_message.text) {    
-    
+
     // Create the payload for a basic text message
     response = {
-      "text": `You sent the message: "${received_message.text}"`
+      "text": `You sent the message: "${received_message.text}". Now send me an image!`
     }
   }  
   
@@ -84,6 +67,7 @@ const
   express = require('express'),
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()); // creates express http server
+  const request = require('request');
 
 // Sets server port and logs message on success
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
@@ -158,5 +142,3 @@ app.get('/webhook', (req, res) => {
       }
     }
   });
-
-  
