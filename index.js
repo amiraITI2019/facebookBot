@@ -9,7 +9,7 @@ function callSendAPI(sender_psid, response) {
     },
     "message": response
   }
-  let apiKey = 'd8bef913f624d5b009caf0b17eca93c3';
+  let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
   let city = 'portland';
   let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
   request(url, function (err, response, body) {
