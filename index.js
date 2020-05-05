@@ -31,7 +31,7 @@ function callSendAPI(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log('message sent!',process.env.PAGE_ACCESS_TOKEN )
+      console.log('message sent!',PAGE_ACCESS_TOKEN )
     } else {
       console.error("Unable to send message:" + err);
     }
