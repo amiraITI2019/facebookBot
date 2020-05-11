@@ -5,7 +5,7 @@ const
   app = express().use(bodyParser.json()),// creates express http server
   request = require('request'),
   nlp=require('node-nlp'),
-  nlpManager = new NlpManager({ languages: ['en'] }),
+  // nlpManager = new NlpManager({ languages: ['en'] }),
   cities = require('all-the-cities'),
   PAGE_ACCESS_TOKEN="EAAl1RPpDf9oBAJHNmtDU1eWEDz6zkISX3SpRey0YhdT7R3btwNFnZABtKSvgdf9fmBKxWyASvGpXvneSZAovv888IzI5ELmUtNmqBYgSZCtQJZALsnup6QvnR79C77JqM2rs4XjXr45qTwjkW6Xes0DesPwaJtYeE4A71asOXPpZAx9BtdPfr";
 
