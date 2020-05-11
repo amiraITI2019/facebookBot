@@ -4,9 +4,9 @@ const
   bodyParser = require('body-parser'),
   app = express().use(bodyParser.json()),// creates express http server
   request = require('request'),
-  nlp=require('node-nlp'),
+  // nlp=require('node-nlp'),
   // nlpManager = new NlpManager({ languages: ['en'] }),
-  cities = require('all-the-cities'),
+  // cities = require('all-the-cities'),
   PAGE_ACCESS_TOKEN="EAAl1RPpDf9oBAJHNmtDU1eWEDz6zkISX3SpRey0YhdT7R3btwNFnZABtKSvgdf9fmBKxWyASvGpXvneSZAovv888IzI5ELmUtNmqBYgSZCtQJZALsnup6QvnR79C77JqM2rs4XjXr45qTwjkW6Xes0DesPwaJtYeE4A71asOXPpZAx9BtdPfr";
 
  //wheather 
@@ -16,15 +16,15 @@ let city = 'portland';
 // console.log("city "+city);
 let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
-request(url, function (err, response, body) {
-  if(err){
-    console.log('error:', error);
-  } else {
-    let weather = JSON.parse(body)
-    let message = `It's ${weather.main.temp} degrees in ${weather.name}!`;
-    console.log(message);
-  }
-});
+// request(url, function (err, response, body) {
+//   if(err){
+//     console.log('error:', error);
+//   } else {
+//     let weather = JSON.parse(body)
+//     let message = `It's ${weather.main.temp} degrees in ${weather.name}!`;
+//     console.log(message);
+//   }
+// });
 
 //end weather
 function callSendAPI(sender_psid, response) {
@@ -67,8 +67,8 @@ function handleMessage(sender_psid, received_message) {
   
   // Sends the response message
   callSendAPI(sender_psid, response);    
-  var tokenizer = new nlp.WordTokenizer();
-console.log(tokenizer.tokenize(received_message.text));
+  // var tokenizer = new nlp.WordTokenizer();
+// console.log(tokenizer.tokenize(received_message.text));
 }
 
 
