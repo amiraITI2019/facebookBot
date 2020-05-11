@@ -97,12 +97,12 @@ function handlePostback(sender_psid, received_postback) {
 app.listen(process.env.PORT || 1337, () => console.log('webhook is listening'));
 
 
-
+  
 app.post('/webhook', (req, res) => {  
 
   // Parse the request body from the POST
   let body = req.body;
-
+console.log("post "+body.object);
   // Check the webhook event is from a Page subscription
   if (body.object === 'page') {
 
@@ -137,7 +137,7 @@ app.post('/webhook', (req, res) => {
 });
   
     
-  
+
 
   // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
