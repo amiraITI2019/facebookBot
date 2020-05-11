@@ -7,16 +7,13 @@ const
   nlp=require('node-nlp'),
   nlpManager = new NlpManager({ languages: ['en'] }),
   cities = require('all-the-cities'),
- 
- 
-
- PAGE_ACCESS_TOKEN="EAAl1RPpDf9oBAC2zz4t1VZCg9YjmHhi6i3u98hTmziXplt2P1nn4TxyDua1zeen8yBNSO40E3uymp3q3aG5TSwRUYmBwe4IFih82pneWDpmU6JXcBjHasz69hfc2VZAyg1j1Q0RyAtd0qT8IdnIkKwPIGhMuC2UnN4PAAXREXoylDP9QZBu";
+  PAGE_ACCESS_TOKEN="EAAl1RPpDf9oBAJHNmtDU1eWEDz6zkISX3SpRey0YhdT7R3btwNFnZABtKSvgdf9fmBKxWyASvGpXvneSZAovv888IzI5ELmUtNmqBYgSZCtQJZALsnup6QvnR79C77JqM2rs4XjXr45qTwjkW6Xes0DesPwaJtYeE4A71asOXPpZAx9BtdPfr";
 
  //wheather 
 let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
 let place = 'portland';
 city=cities.filter(city => city.name.match(place))[0]["name"];
-
+console.log("city "+city);
 let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
 request(url, function (err, response, body) {
@@ -47,7 +44,7 @@ function callSendAPI(sender_psid, response) {
     "json": request_body
   }, (err, res, body) => {
     if (!err) {
-      console.log('message sent!',process.env.PAGE_ACCESS_TOKEN )
+      console.log('message sent!')
     } else {
       console.error("Unable to send message:" + err);
     }
