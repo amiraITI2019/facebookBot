@@ -11,9 +11,9 @@ const
 
  //wheather 
 let apiKey = 'bdb10f3cb32042a751c327767214a4c0';
-let place = 'portland';
-city=cities.filter(city => city.name.match(place))[0]["name"];
-console.log("city "+city);
+let city = 'portland';
+// city=cities.filter(city => city.name.match(place))[0]["name"];
+// console.log("city "+city);
 let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`;
 
 request(url, function (err, response, body) {
